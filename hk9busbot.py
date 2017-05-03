@@ -38,8 +38,7 @@ def search(bot, update):
     route = update.message.text.upper()
     if not re.search(r'[A-Z]*[0-9]+[A-Z]*', route):
         return update.message.reply_text('invalid bus number')
-    print("%s search %s" % (update.message.from_user.first_name, route))
-
+    logging.info('%s Search Route %s' % (update.message.from_user, route))
     try:
         r = requests.get("http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=%s&bound=1&serviceType=1" %
                          route, headers={'Connection': 'close'})
