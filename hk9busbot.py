@@ -87,7 +87,7 @@ def button(bot, update):
             if("seq" in token):
                 seq = token.split("=")[1]
         logging.info('Button: %s refresh Route : %s' %
-                     (query.message.from_user, route))  # query.message.from_user
+                     (query.from_user, route))  # query.message.from_user
         if(getTime):
             # get direction, seq name
             r = requests.get("http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=%s&bound=%s&serviceType=1" %
